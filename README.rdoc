@@ -1,5 +1,5 @@
 == README
-
+BookMarc is a place to share book marks. 
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
