@@ -1,0 +1,8 @@
+Seneario: Successfully sing up
+
+User goes to welcome page
+User clickes on sing up botton
+User user goes to sing up page
+User submites Name, Email, Password and Password confermaiton.
+User sees confermation message.
+User authenticates via email.
