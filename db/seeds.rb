@@ -20,7 +20,30 @@ end
 
 users = User.all
 
-User.first.update_attributes(
-  email: 'valente.marc@gmail.com',
-  password: 'helloworld',
-  )
+
+# Create an admin user
+admin = User.new(
+  name:       'Admin User',
+  email:      'admin@example.com',
+  password:   'helloworld',
+
+)
+admin.skip_confirmation!
+admin.save
+
+moderator = User.new(
+  name:       'Moderator User',
+  email:      'moderator@example.com',
+  password:   'helloworld',
+ 
+)
+moderator.skip_confirmation!
+moderator.save
+
+member = User.new(
+  name:     'Member User',
+  email:    'member@example.com',
+  password: 'helloworld'
+)
+member.skip_confirmation!
+member.save  
