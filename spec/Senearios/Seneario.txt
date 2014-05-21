@@ -7,4 +7,14 @@ User submites Name, Email, Password and Password confermaiton.
 User sees confermation message.
 User authenticates via email.
 
+End
+
 Seneario: Successfully sing in with FaceBook credectioals. 
+
+End
+
+Seneario: Successfully sending an bookmark form email
+
+Usre sends an email with a book mark in the body
+
+End

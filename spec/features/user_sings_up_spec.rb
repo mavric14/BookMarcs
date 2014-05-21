@@ -10,3 +10,4 @@ feature 'User sings up' do
     fill_in 'Password confirmation', with: 'helloworld'
   end
 end
+
