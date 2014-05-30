@@ -4,5 +4,7 @@
   <%= category.name %>
   <% category.bookmarks.each do |bm| %>
     <%= bm.url %>
+    <%= link_to "Unlike" %>
+
   <% end %> 
 <% end %>

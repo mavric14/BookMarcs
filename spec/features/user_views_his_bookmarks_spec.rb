@@ -103,10 +103,7 @@ feature 'User likes a bookmark' do
       user2.skip_confirmation!
       user2.save
       catagory = FactoryGirl.create(:category) 
-   #   user1.bookmarks.create(url: message1.body.to_s, category_id: catagory.id) 
-   #   user1.bookmarks.create(url: message2.body.to_s, category_id: catagory.id) 
-     user2.bookmarks.create(url: message3.body.to_s, category_id: catagory.id)
-   #   puts user1.email
+      user2.bookmarks.create(url: message3.body.to_s, category_id: catagory.id)
     end
     
     it "should have like link" do
@@ -124,7 +121,16 @@ feature 'User likes a bookmark' do
     #  save_and_open_page
       page.should have_content('http://diablocrossfit.com')
     end
-
+    it "should be unlikeable user" do
+      visit user_session_path
+      fill_in 'Email', with: 'admin@example.com'
+      fill_in 'Password', with: 'helloworld'     
+      click_on('Sign in')
+      click_link('Like')
+      click_link('My Bookmarks')
+      click_link('Unlike')
+      page.should have_no_content('http://diablocrossfit.com')
+    end
 
   end
 end
