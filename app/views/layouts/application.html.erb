@@ -14,6 +14,7 @@
      <div class="pull-right user-info">
           <% if current_user %>
              Hello <%= current_user.email %>! <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+             <%= link_to "My Bookmarks", mbookmark_index_path %>
            <% else %>
              <%= link_to "Sign In", new_user_session_path %> ,
              <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %> or 

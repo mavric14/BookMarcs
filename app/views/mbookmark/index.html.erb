@@ -1,9 +1,8 @@
-<h1>All Bookmarcs</h1>
+<h1>My Bookmarcs</h1>
 
 <% @categoies.each do |category| %>
   <%= category.name %>
   <% category.bookmarks.each do |bm| %>
     <%= bm.url %>
-    <%= link_to "Like", bookmarc_index_path(:bmurl => bm.url, :catid => category.id), :method => :post %>
   <% end %> 
 <% end %>
