@@ -4,7 +4,7 @@
   <%= category.name %>
   <% category.bookmarks.each do |bm| %>
     <%= bm.url %>
-    <%= link_to "Unlike" %>
+    <%= link_to "Unlike", mbookmark_path(:id => bm.id), :method => :delete %>
 
   <% end %> 
 <% end %>

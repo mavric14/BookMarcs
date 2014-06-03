@@ -80,7 +80,6 @@ feature 'User sees only his/her bookmarks' do
       fill_in 'Password', with: 'helloworld'     
       click_on('Sign in')
       click_link('My Bookmarks')
-      
       page.should have_content('http://documentation.mailgun.com/faqs.html#faq')
       page.should have_no_content('http://diablocrossfit.com')
 
@@ -121,13 +120,27 @@ feature 'User likes a bookmark' do
     #  save_and_open_page
       page.should have_content('http://diablocrossfit.com')
     end
-    it "should be unlikeable user" do
+
+    it "should be unlikeable from main page" do
+      visit user_session_path
+      fill_in 'Email', with: 'admin@example.com'
+      fill_in 'Password', with: 'helloworld'  
+      click_on('Sign in')
+      click_link('Like')
+      click_link('BookMarcs')
+      save_and_open_page
+      click_link('Unlike')
+      page.should have_no_content('http://diablocrossfit.com')
+    end
+
+
+    it "should be unlikeable from user personal page" do
       visit user_session_path
       fill_in 'Email', with: 'admin@example.com'
       fill_in 'Password', with: 'helloworld'     
       click_on('Sign in')
       click_link('Like')
-      click_link('My Bookmarks')
+     # click_link('BookMarcs')
       click_link('Unlike')
       page.should have_no_content('http://diablocrossfit.com')
     end

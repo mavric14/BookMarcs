@@ -5,7 +5,7 @@ Bookmarcs::Application.routes.draw do
   resources :bookmarc, only: [:index, :create, :new, :show]
   devise_for :users,  :controllers => { :omniauth_callbacks => "users/omniauth_callbacks"}
   resources :welcome, only: [:index]
-  resources :mbookmark, only: [:index]
+  resources :mbookmark, only: [:index, :destroy]
   root to: 'welcome#index'
   post :incoming, to: 'incoming#create'
 

@@ -1,6 +1,6 @@
 <h1>All Bookmarcs</h1>
 
-<% @categoies.each do |category| %>
+<% @categoiesDistinctBm .each do |category| %>
   <%= category.name %>
   <% category.bookmarks.each do |bm| %>
     <%= bm.url %>
