@@ -1,7 +1,23 @@
 Bookmarcs::Application.routes.draw do
-  devise_for :users
+  get "category/index"
+  get "category/show"
+#  get "bookmarc/index"
+#  get "bookmarc/new"
+# get "bookmarc/show"
+  resources :bookmarc, only: [:index, :create, :new, :show]
+  devise_for :users,  :controllers => { :omniauth_callbacks => "users/omniauth_callbacks"}
   resources :welcome, only: [:index]
+  resources :mbookmark, only: [:index, :destroy]
+  resources :like, only: [:create, :destroy, :new]
   root to: 'welcome#index'
+  post :incoming, to: 'incoming#create'
+
+
+   
+
+#  devise_scope :user do 
+#    get 'sign_out', :to => 'devise/seesions#destroy', :as => :destroy_user_session
+#  end 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

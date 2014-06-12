@@ -7,6 +7,9 @@ group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails'
   gem 'capybara'
+  gem 'mail'
+  gem 'factory_girl_rails'
+  gem 'launchy'
 end
 
 group :production do
@@ -45,3 +48,5 @@ gem 'devise'
 gem 'figaro'
 gem 'faker'
 gem 'omniauth-facebook'
+gem 'incoming'
+gem 'database_cleaner'

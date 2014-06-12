@@ -1,0 +1,20 @@
+<h1>My Bookmarcs</h1>
+
+<% @categoiesOfUsersBookMarks.each do |category| %>
+  <%= category.name %>
+  <% category.bookmarks.each do |bm| %>
+    <%= bm.url %>
+    <%= link_to "remove", mbookmark_path(:id => bm.id), :method => :delete  %>
+
+  <% end %> 
+<% end %>
+
+<h1>Liked Bookmarks</h1>
+<% @categoriesFromLikes.each do |category| %>
+  <%= category.name %>
+  <% category.bookmarks.each do |bm| %>
+    <%= bm.url %>
+    <%= link_to "Unlike", like_path(:id => bm.id), :method => :delete  %>
+
+  <% end %> 
+<% end %>
