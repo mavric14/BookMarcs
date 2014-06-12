@@ -2,6 +2,7 @@ class BookmarcController < ApplicationController
 before_filter :authenticate_user!, :except => [:index, :show]
   def index
     @categoies = Category.all
+    user = User.find(current_user)
     @categoiesDistinctBm = @categoies.uniq{|bookmark| bookmark.url}
    # puts "the name issssss " + @categoies[0].name
   end

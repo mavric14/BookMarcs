@@ -1,9 +1,13 @@
 <h1>All Bookmarcs</h1>
 
 <% @categoiesDistinctBm .each do |category| %>
-  <%= category.name %>
+ <p> <%= link_to category.name, category_index_path(:catid => category.id) %></p>
   <% category.bookmarks.each do |bm| %>
     <%= bm.url %>
-    <%= link_to "Like", bookmarc_index_path(:bmurl => bm.url, :catid => category.id), :method => :post %>
+    <% if liked = current_user.liked(bm) %>
+      <%= link_to "Unlike", like_path(:id => bm.id), :method => :delete %>
+    <% else %>
+      <%= link_to "Like", like_index_path(:bmid => bm.id, :catid => category.id), :method => :post %>
+    <% end %>
   <% end %> 
 <% end %>
